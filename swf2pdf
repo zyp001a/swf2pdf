@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+#imagemagic poppler-utils is needed
+$swf = $ARGV[0];
+open A,"swfdump $swf |";
+while (<A>){
+		if(/SHOWFRAME\s+(\d+)/){
+				$page = $1;
+		}
+}
+close A;
+print $page,"\n";
+for $i (1..$page){
+		system qq(swfrender -r 240 -p $i $swf -o tmp_$i);
+		system qq(convert tmp_$i tmp_$i.pdf);
+		unlink("tmp_$i");
+		push @outs, "tmp_$i.pdf";
+}
+system qq(pdfunite @outs $swf.pdf);
+unlink @outs;
+print $swf, " done\n";
