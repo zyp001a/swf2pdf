@@ -1,7 +1,9 @@
 convert swf to pdf.
 
-==INSTALL==
+INSTALL
+=========
 imagemagic and poppler-utils is needed, you can simply install them by apt-get
 
-==USAGE==
+USAGE
+=========
 '''swf2pdf *.swf
