@@ -3,7 +3,7 @@ convert swf to pdf.
 INSTALL
 =========
 ```
-apt-get install imagemagick poppler-utils swfdump
+apt-get install imagemagick poppler-utils swftools
 ```
 The program convert swf to image, then to pdf
 USAGE
